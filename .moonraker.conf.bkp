@@ -2,6 +2,7 @@
 host = 0.0.0.0
 port = 7125
 max_upload_size = 1024
+klippy_uds_address = ~/printer_data/comms/klippy.sock
 
 [file_manager]
 enable_object_processing = False
@@ -25,11 +26,32 @@ trusted_clients =
 
 [history]
 
+[announcements]
+subscriptions = 
+	mainsail
+
 [update_manager]
 refresh_interval = 168
+enable_auto_refresh = True
 
 [update_manager mainsail]
 type = web
+channel = stable
 repo = mainsail-crew/mainsail
 path = ~/mainsail
+
+[update_manager mainsail-config]
+type = git_repo
+primary_branch = master
+path = ~/mainsail-config
+origin = https://github.com/mainsail-crew/mainsail-config.git
+managed_services = klipper
+
+[update_manager sonar]
+type = git_repo
+path = ~/sonar
+origin = https://github.com/mainsail-crew/sonar.git
+primary_branch = main
+managed_services = sonar
+install_script = tools/install.sh
 
