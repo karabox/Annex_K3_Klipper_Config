@@ -55,3 +55,16 @@ primary_branch = main
 managed_services = sonar
 install_script = tools/install.sh
 
+[update_manager idm]
+type = git_repo
+path = ~/IDM
+channel = dev
+origin = https://gitee.com/NBTP/IDM.git
+env = ~/klippy-env/bin/python
+requirements = requirements.txt
+install_script = install.sh
+is_system_service = False
+managed_services = klipper
+info_tags = 
+	desc=IDM scanner
+
